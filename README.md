@@ -1,24 +1,30 @@
-# README
+# バッチ処理
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 処理方式
+バッチ処理はアプリケーションに関するデータの参照と更新を実現するための手段のひとつ。<br>
+アプリケーションを設計するとき、どのようにしてデータを参照・更新するのが適切であるかを考えることはとても大切なこと。<br>
+この「どのようにして」データの参照と更新を実現していくのか、その「手段」をITエンジニアの業界ではときどき「方式」と呼ぶことがある。<br>
+<br>
+データを参照・更新する方式は大きく分けると三つある。<br>
 
-Things you may want to cover:
+- エンドユーザーによる操作
+- 管理者による操作
+- バッチ処理
 
-* Ruby version
+バッチ処理はそのひとつ。
 
-* System dependencies
 
-* Configuration
+### バッチ処理が有効
 
-* Database creation
+バッチ処理は月曜日の朝に一回や毎日夜10時といったように、定期的に実行するケースもあれば、必要なときに実行するケースもある。
 
-* Database initialization
+例)
+- 商品情報の一括更新
+- 統計データの作成 ==> 大量データの集計
+- バックアップの作成 ==> ファイルアップロード
 
-* How to run the test suite
+### バッチ処理の実行環境
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+バッチ処理専用のバッチサーバーを構築して、そこで実行することが多い。<br>
+cronを利用して、バッチ処理をスケジュール実行が多い。<br>
+逆に一度のみの実行なら、バッチサーバーにログインして、そこから実行する運用方法が取られるらしい。<br>
