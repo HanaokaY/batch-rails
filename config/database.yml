@@ -3,7 +3,7 @@ default: &default
   encoding: utf8mb4
   charset: utf8mb4
   collation: utf8mb4_bin
-  host: <%= ENV['MYSQL_HOST'] || '127.0.0.1' %>
+  host: <%= ENV['MYSQL_HOST'] || '127.0.0.1' %> # 環境変数がない場合は、127.0.0.1が使われるということ。
   port: <%= ENV['MYSQL_PORT'] || 3306 %>
   username: <%= ENV['MYSQL_USER'] || 'batch_user' %>
   password: <%= ENV['MYSQL_PASSWORD'] || 'batch' %>
@@ -13,9 +13,9 @@ development:
   <<: *default
 
 test:
-  <<: *default
-  database: batch_test
+  <<: *default # この記述でdefaultの内容を適用することができる
+  database: batch_test # データベースの名前のみ変更している
 
 production:
-  <<: *default
+  <<: *default # この記述でdefaultの内容を適用することができる
   database: batch
